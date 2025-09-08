@@ -498,7 +498,7 @@ export default class Resizer {
     const attrName = 'data-' + config.prefix + 'handler';
     const rect = this.getElementPos(el, { avoidFrameZoom: true, avoidFrameOffset: true });
     const parentRect = this.getElementPos(parentEl!);
-    const target = e.target as HTMLElement;
+    const target = e.composedPath()[0] as HTMLElement;
     this.handlerAttr = target.getAttribute(attrName)!;
     this.clickedHandler = target;
     this.startDim = {
@@ -674,7 +674,7 @@ export default class Resizer {
    * Handle mousedown to check if it's possible to start resizing
    */
   handleMouseDown(e: PointerEvent) {
-    const el = e.target as HTMLElement;
+    const el = e.composedPath()[0] as HTMLElement;
 
     if (this.isHandler(el)) {
       this.selectedHandler = el;

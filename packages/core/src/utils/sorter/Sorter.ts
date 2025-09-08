@@ -173,7 +173,9 @@ export default class Sorter<T, NodeType extends SortableTreeNode<T>> {
   private ensurePlaceholderElement() {
     const el = this.placeholder.el;
     const container = this.containerContext.container;
-    if (!el.ownerDocument.contains(el)) {
+    // Gainsight usecase to check if the placeholder is in the Shadow DOM/ ownerDocument
+    const isInDOM = (el.getRootNode()?.contains(el) ?? false);
+    if (!isInDOM) {
       container.append(this.placeholder.el);
     }
   }
