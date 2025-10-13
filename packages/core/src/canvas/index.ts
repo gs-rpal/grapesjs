@@ -422,38 +422,28 @@ export default class CanvasModule extends Module<CanvasConfig> {
     const canvasOffset = opts.canvasOff || this.canvasRectOffset(el, elRect);
     const targetHeight = targetEl.offsetHeight || 0;
     const targetWidth = targetEl.offsetWidth || 0;
+    const elRight = elRect.left + elRect.width;
     const canvasView = this.getCanvasView();
-    const { scrollTop: canvasScrollTop, scrollLeft: canvasScrollLeft } = canvasView.getCanvasScroll();
     const canvasRect = canvasView.getPosition();
+    const frameOffset = canvasView.getFrameOffset(el);
     const { event } = opts;
 
-    const defaultLeftOffset = elRect.width - targetWidth;
-    const defaultTopOffset = -targetHeight;
+    let top = -targetHeight;
+    let left = !isUndefined(opts.left) ? opts.left : elRect.width - targetWidth;
+    left = elRect.left < -left ? -elRect.left : left;
+    left = elRight > canvasRect.width ? left - (elRight - canvasRect.width) : left;
 
-    let left = !isUndefined(opts.left) ? opts.left : defaultLeftOffset;
-    const canvasLiftLimit = Math.max(-elRect.left + canvasScrollLeft, 0);
-    left = Math.max(left, canvasLiftLimit);
-
-    const elementRightLimit = elRect.width - targetWidth;
-    left = Math.min(left, elementRightLimit);
-
-    const canvasRightLimit = canvasRect.width + canvasScrollLeft - targetWidth - elRect.left;
-    left = Math.min(left, canvasRightLimit);
-
-    const targetReachesCanvasTop = canvasOffset.top < targetHeight + canvasScrollTop;
-    let top = defaultTopOffset;
-
-    if (targetReachesCanvasTop) {
+    // Check when the target top edge reaches the top of the viewable canvas
+    if (canvasOffset.top < targetHeight) {
       const fullHeight = elRect.height + targetHeight;
-      const elementIsShorterThanFrame = fullHeight < canvasRect.height;
+      const elIsShort = fullHeight < frameOffset.height;
 
       // Scroll with the window if the top edge is reached and the
       // element is bigger than the canvas
-      if (elementIsShorterThanFrame) {
+      if (elIsShort) {
         top = top + fullHeight;
       } else {
-        const canvasRelativeTop = -canvasOffset.top + canvasScrollTop;
-        top = canvasRelativeTop < elRect.height ? canvasRelativeTop : elRect.height;
+        top = -canvasOffset.top < elRect.height ? -canvasOffset.top : elRect.height;
       }
     }
 

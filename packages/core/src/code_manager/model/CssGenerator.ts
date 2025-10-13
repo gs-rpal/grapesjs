@@ -62,6 +62,7 @@ export default class CssGenerator extends Model {
     let code = '';
     const em = this.em;
     const avoidInline = em && em.getConfig().avoidInlineStyle;
+    const addInlineStyle = em && em.getConfig().addInlineStyleToTextComponent;
     const style = model.styleToString();
     const classes = model.classes;
     this.ids.push(`#${model.getId()}`);
@@ -70,6 +71,10 @@ export default class CssGenerator extends Model {
     classes.forEach((model: any) => this.compCls.push(model.getFullName()));
 
     if (!avoidInline && style) {
+      code = `#${model.getId()}{${style}}`;
+    }
+
+    if (addInlineStyle && style) {
       code = `#${model.getId()}{${style}}`;
     }
 

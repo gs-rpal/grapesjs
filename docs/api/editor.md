@@ -42,6 +42,15 @@ editor.on('load', () => { ... });
 editor.on('project:load', ({ project, initial }) => { ... });
 ```
 
+* `project:loaded` Similar to `project:load`, but triggers only if the project is loaded successfully.
+
+```javascript
+editor.on('project:loaded', ({ project, initial }) => { ... });
+
+// Loading an empty project, won't trigger this event.
+editor.loadProjectData({});
+```
+
 * `project:get` Event triggered on request of the project data. This can be used to extend the project with custom data.
 
 ```javascript
@@ -516,6 +525,7 @@ Load data from the JSON project
 ### Parameters
 
 *   `data` **[Object][16]** Project to load
+*   `options` **[Object][16]?** Custom options that could be passed to the project load events. (optional, default `{}`)
 
 ### Examples
 

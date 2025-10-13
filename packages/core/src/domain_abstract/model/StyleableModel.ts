@@ -21,6 +21,7 @@ export interface UpdateStyleOptions extends SetOptions, DataWatchersOptions {
   addStyle?: StyleProps;
   inline?: boolean;
   noEvent?: boolean;
+  forceIntoId?: boolean;
 }
 
 export type StyleableView = ComponentView | CssRuleView;
@@ -38,6 +39,7 @@ export interface StyleableModelProperties extends ObjectHash {
 
 export interface GetStyleOpts {
   skipResolve?: boolean;
+  forceIntoId?: boolean;
 }
 
 type WithDataResolvers<T> = {
