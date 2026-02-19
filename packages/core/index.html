@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head id="main-head" titl>
     <meta charset="utf-8" />
     <title>GrapesJS</title>
     <link rel="stylesheet" href="dist/css/grapes.min.css" />
-    <script src="grapes.min.js"></script>
+    <script src="dist/grapes.min.js"></script>
+    <script src="dist/grapesjs-plugins.bundle.js"></script>
     <style>
       body,
       html {
@@ -15,71 +16,254 @@
   </head>
 
   <body>
-    <div id="gjs" style="height: 0px; overflow: hidden">
-      <div class="panel">
-        <h1 class="welcome">Welcome to</h1>
-        <div class="big-title">
-          <svg class="logo" viewBox="0 0 100 100">
-            <path
-              d="M40 5l-12.9 7.4 -12.9 7.4c-1.4 0.8-2.7 2.3-3.7 3.9 -0.9 1.6-1.5 3.5-1.5 5.1v14.9 14.9c0 1.7 0.6 3.5 1.5 5.1 0.9 1.6 2.2 3.1 3.7 3.9l12.9 7.4 12.9 7.4c1.4 0.8 3.3 1.2 5.2 1.2 1.9 0 3.8-0.4 5.2-1.2l12.9-7.4 12.9-7.4c1.4-0.8 2.7-2.2 3.7-3.9 0.9-1.6 1.5-3.5 1.5-5.1v-14.9 -12.7c0-4.6-3.8-6-6.8-4.2l-28 16.2"
-            />
-          </svg>
-          <span>GrapesJS</span>
-        </div>
-        <div class="description">
-          This is a demo content from index.html. For the development, you shouldn't edit this file, instead you can
-          copy and rename it to _index.html, on next server start the new file will be served, and it will be ignored by
-          git.
-        </div>
+    <div class="container" style="width: 100%; height: 100%;">
+      <div id="gjs" style="height: 0px; overflow: hidden;">
+        <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" class="gs-rte gs-rte-eb-html"><head class="gs-rte gs-rte-eb-head" id="i6vn" data-gjs-type="head">  <meta charset="utf-8"> <!-- utf-8 works for most cases -->  <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->  <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->  <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no">  <!-- Tell iOS not to automatically link certain text strings. -->  <title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->  <!-- Web Font / @font-face : BEGIN -->  <!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. -->  <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->  <!--[if mso]>  <style>    * {      font-family: arial, sans-serif !important;    }  </style>  <![endif]-->  <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->  <!--[if !mso]><!-->  <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->  <!--<![endif]-->  <!--[if mso]><![endif]-->  <!-- for all outlook desktop client -->  <!--[if mso 12]><![endif]-->  <!-- for all outlook 2007 desktop client -->  <!--[if mso 14]><![endif]-->  <!-- for all outlook 2010 desktop client -->  <!--[if mso 15]><![endif]-->  <!-- for all outlook 2013 desktop client -->  <!--[if mso 16]><![endif]-->  <!-- for all outlook 2016 desktop client -->  <!-- Web Font / @font-face : END -->  <!-- CSS Reset : BEGIN -->  <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->  <!--[if gte mso 9]>  <xml>    <o:OfficeDocumentSettings>      <o:AllowPNG/>      <o:PixelsPerInch>96</o:PixelsPerInch>    </o:OfficeDocumentSettings>  </xml>  <![endif]-->  <!-- CSS Reset : END -->  <style type="text/css" rel="stylesheet" role="inline">
+:not(ul):not(ol) { text-size-adjust: 100%; }
+html, body { color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-family: arial, sans-serif; margin: 0px; border: 0px; outline: 0px; line-height: 1.42857 !important; padding: 0px !important; }
+html { font-size: 10px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+body { font-size: 13px !important; }
+table:not([gs-eb-block], .gs-socials) td, table:not([gs-eb-block], .gs-socials) th { border-spacing: 0px; border-collapse: collapse; }
+table:not([gs-eb-block]) td { padding: 0px; vertical-align: top; }
+table:not([gs-eb-block]) th { padding: 0px; }
+a { cursor: pointer; color: rgb(17, 85, 204); text-decoration: underline; }
+a:hover, a:focus { color: rgb(17, 85, 204); text-decoration: underline; }
+a:focus { outline: -webkit-focus-ring-color auto 5px; outline-offset: -2px; }
+figure { margin: 0px; }
+img { display: inline-block; border: 0px none; line-height: 100%; outline: none; text-decoration: none; vertical-align: text-bottom; color: rgb(40, 55, 184); font-size: 14px; }
+a img { border: 0px none; }
+hr { margin: 0px 0px 10px; border-width: 1px 0px 0px; border-right-style: initial; border-bottom-style: initial; border-left-style: initial; border-right-color: initial; border-bottom-color: initial; border-left-color: initial; border-image: initial; border-top-style: solid; border-top-color: rgb(238, 238, 238); }
+small, .small { font-size: 85%; line-height: 1.42857; }
+h1, h2, h3, h4, h5, h6 { color: rgb(0, 0, 0); font-family: inherit; font-weight: 500; line-height: 1.42857; margin-top: 0px; margin-bottom: 10px; }
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small { font-weight: normal; line-height: 1; color: rgb(119, 119, 119); }
+h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small { font-size: 65%; }
+h4 small, h5 small, h6 small, h4 .small, h5 .small, h6 .small { font-size: 75%; }
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+h3 { font-size: 24px; }
+h4 { font-size: 18px; }
+h5 { font-size: 14px; }
+h6 { font-size: 12px; }
+p, div, .polyfixpara { line-height: 1.42857; font-size: 13px; padding-top: 0px; padding-bottom: 0px; margin: 0px; }
+ol { list-style-type: decimal; }
+ul { list-style-type: disc; }
+ul, ol { font-size: 13px; margin-top: 0px; margin-bottom: 0px; padding-left: 40px; }
+ul ul, ol ul, ul ol, ol ol { margin-bottom: 0px; }
+ul li, ol li { margin: 0px; line-height: 1.42857; }
+dl { margin-top: 0px; margin-bottom: 20px; }
+dt, dd { line-height: 1.42857; }
+dt { font-weight: bold; }
+dd { margin-left: 0px; }
+abbr[title], abbr[data-original-title] { cursor: help; border-bottom: 1px dotted rgb(119, 119, 119); }
+.report-img.embed-report { margin: 0px auto; display: block; }
+.MsoNormal:empty { display: none; }</style>  <style type="text/css" rel="stylesheet" role="export">
+#outlook a { padding: 0px; }
+p.MsoNormal { margin: 0px; }
+.ReadMsgBody, .ExternalClass { width: 100%; }
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
+span.yshortcuts { color: rgb(0, 0, 0); border: none; }
+span.yshortcuts:hover, span.yshortcuts:active, span.yshortcuts:focus { color: rgb(0, 0, 0); border: none; }
+a[x-apple-data-detectors="true"] { color: inherit !important; text-decoration: inherit !important; border-bottom: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
+.webkit { width: 100%; table-layout: fixed; text-size-adjust: 100%; }
+div[style*="margin: 16px 0"] { margin: 0px !important; }
+a[x-apple-data-detectors], .unstyle-auto-detected-links a, .aBn { border-bottom: 0px !important; cursor: default !important; color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
+.a6S { display: none !important; opacity: 0.01 !important; }
+.im { color: inherit !important; }
+img.g-img + div { display: none !important; }
+* { -webkit-font-smoothing: antialiased; }
+body { -webkit-font-smoothing: antialiased; text-size-adjust: 100%; }
+@media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+  u ~ table .emailbuilder_container { min-width: 320px !important; }
+  .gs-inline-survey-nps td { min-width: 90px !important; }
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+  u ~ table .emailbuilder_container { min-width: 375px !important; }
+  .gs-inline-survey-nps td { min-width: 90px !important; }
+}
+@media only screen and (min-device-width: 414px) {
+  u ~ table .emailbuilder_container { min-width: 414px !important; }
+  .gs-inline-survey-nps td { min-width: 90px !important; }
+}</style>  <style gs-style-type="inline" data-type="inline" type="text/css" role="inline" rel="stylesheet">
+.gs-text-transform.gs-text-transform-lowercase { text-transform: lowercase; }
+.gs-text-transform.gs-text-transform-uppercase { text-transform: uppercase; }
+.gs-text-transform.gs-text-transform-capitalize { text-transform: capitalize; }
+.gs-container-descriptor { pointer-events: none; }
+.gs-socials { border-collapse: separate !important; line-height: 100% !important; }
+.gs-socials .gs-social-column { border: none !important; border-radius: 3px !important; cursor: auto !important; }
+.gs-socials .gs-social-column a { display: inline-block !important; }
+.gs-socials[data-rte-social-style="white"] { background-color: rgb(62, 88, 114); }
+.gs-socials.social-icons-sm a img { width: 32px; }
+.gs-socials.social-icons-md a img { width: 48px; }
+.gs-socials.social-icons-lg a img { width: 64px; }
+[eb-block-container] { vertical-align: top; box-sizing: border-box; }
+[gs-eb-block], [gs-eb-block] table { font-size: 13px; }</style><style gs-style-type="responsive" data-type="responsive" type="text/css" role="export" rel="stylesheet">@media screen and (max-width: 480px) {
+  #email-container-main {
+    width: 100% !important;
+  }
+
+  #email-container-table {
+    width: 100% !important;
+  }
+
+  .report-img {
+    width: 100% !important;
+  }
+
+  table.gs-responsive tbody td.gs-responsive {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .rte-img-container.gs-responsive {
+    width: 100% !important;
+  }
+
+  img.gs-responsive {
+    width: 100% !important;
+  }
+
+  [rte-inline-survey-placeholder] {
+    width: 100% !important;
+  }
+
+  .rte-divider-container {
+    width: 100% !important;
+  }
+  .rte-divider-container > * {
+    width: 100% !important;
+  }
+}
+/* These styles will only apply to Apple Mail and WebKit-based browsers */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  img {
+    margin-left: 0;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9ycGFsL0dTRGV2L25vbi1mcm9hbGEvZ3MtdWktdGVtcGxhdGVidWlsZGVyL2FwcHMvdGVtcGxhdGUtYnVpbGRlci9zdHlsZXMvX2VtYWlsYnVpbGRlci5yZXNwb25zaXZlLnNjc3MiLCJhcHBzL3RlbXBsYXRlLWJ1aWxkZXIvc3R5bGVzL19lbWFpbGJ1aWxkZXIucmVzcG9uc2l2ZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0U7SUFDRSxzQkFBQTtFQ0NGOztFRENBO0lBQ0Usc0JBQUE7RUNFRjs7RURBQTtJQUNFLHNCQUFBO0VDR0Y7O0VEQ0k7SUFDRSx5QkFBQTtJQUNBLHNCQUFBO0lBQ0EsZUFBQTtJQUNBLGtCQUFBO0VDRU47O0VERUE7SUFDRSxzQkFBQTtFQ0NGOztFRENBO0lBQ0Usc0JBQUE7RUNFRjs7RURBQTtJQUNFLHNCQUFBO0VDR0Y7O0VEREE7SUFDRSxzQkFBQTtFQ0lGO0VESEU7SUFDRSxzQkFBQTtFQ0tKO0FBQ0Y7QUREQSx5RUFBQTtBQUNBO0VBRUU7SUFDRSxjQUFBO0VDRUY7QUFDRiIsImZpbGUiOiJhcHBzL3RlbXBsYXRlLWJ1aWxkZXIvc3R5bGVzL19lbWFpbGJ1aWxkZXIucmVzcG9uc2l2ZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNDgwcHgpIHtcbiAgI2VtYWlsLWNvbnRhaW5lci1tYWluIHtcbiAgICB3aWR0aDogMTAwJSFpbXBvcnRhbnQ7XG4gIH1cbiAgI2VtYWlsLWNvbnRhaW5lci10YWJsZSB7XG4gICAgd2lkdGg6IDEwMCUhaW1wb3J0YW50O1xuICB9XG4gIC5yZXBvcnQtaW1nIHtcbiAgICB3aWR0aDogMTAwJSFpbXBvcnRhbnQ7XG4gIH1cbiAgdGFibGUuZ3MtcmVzcG9uc2l2ZSB7XG4gICAgdGJvZHkge1xuICAgICAgdGQuZ3MtcmVzcG9uc2l2ZSB7XG4gICAgICAgIGRpc3BsYXk6IGJsb2NrIWltcG9ydGFudDtcbiAgICAgICAgd2lkdGg6IDEwMCUhaW1wb3J0YW50O1xuICAgICAgICBtYXJnaW4tdG9wOiA1cHg7XG4gICAgICAgIG1hcmdpbi1ib3R0b206IDVweDtcbiAgICAgIH1cbiAgICB9XG4gIH1cbiAgLnJ0ZS1pbWctY29udGFpbmVyLmdzLXJlc3BvbnNpdmUge1xuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gIH1cbiAgaW1nLmdzLXJlc3BvbnNpdmUge1xuICAgIHdpZHRoOiAxMDAlIWltcG9ydGFudDtcbiAgfVxuICBbcnRlLWlubGluZS1zdXJ2ZXktcGxhY2Vob2xkZXJdIHtcbiAgICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xuICB9XG4gIC5ydGUtZGl2aWRlci1jb250YWluZXIge1xuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gICAgPiAqIHtcbiAgICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gICAgfVxuICB9XG59XG5cbi8qIFRoZXNlIHN0eWxlcyB3aWxsIG9ubHkgYXBwbHkgdG8gQXBwbGUgTWFpbCBhbmQgV2ViS2l0LWJhc2VkIGJyb3dzZXJzICovXG5AbWVkaWEgc2NyZWVuIGFuZCAoLXdlYmtpdC1taW4tZGV2aWNlLXBpeGVsLXJhdGlvOiAwKSB7XG4gIC8vIERlc2t0b3AgQXBwbGUgTWFpbCBjbGllbnQgc2V0cyBzb21lIG1hcmdpbi1sZWZ0XG4gIGltZyB7XG4gICAgbWFyZ2luLWxlZnQ6IDA7XG4gIH1cbn1cblxuIiwiQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNDgwcHgpIHtcbiAgI2VtYWlsLWNvbnRhaW5lci1tYWluIHtcbiAgICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xuICB9XG5cbiAgI2VtYWlsLWNvbnRhaW5lci10YWJsZSB7XG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcbiAgfVxuXG4gIC5yZXBvcnQtaW1nIHtcbiAgICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xuICB9XG5cbiAgdGFibGUuZ3MtcmVzcG9uc2l2ZSB0Ym9keSB0ZC5ncy1yZXNwb25zaXZlIHtcbiAgICBkaXNwbGF5OiBibG9jayAhaW1wb3J0YW50O1xuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gICAgbWFyZ2luLXRvcDogNXB4O1xuICAgIG1hcmdpbi1ib3R0b206IDVweDtcbiAgfVxuXG4gIC5ydGUtaW1nLWNvbnRhaW5lci5ncy1yZXNwb25zaXZlIHtcbiAgICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xuICB9XG5cbiAgaW1nLmdzLXJlc3BvbnNpdmUge1xuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG4gIH1cblxuICBbcnRlLWlubGluZS1zdXJ2ZXktcGxhY2Vob2xkZXJdIHtcbiAgICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xuICB9XG5cbiAgLnJ0ZS1kaXZpZGVyLWNvbnRhaW5lciB7XG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcbiAgfVxuICAucnRlLWRpdmlkZXItY29udGFpbmVyID4gKiB7XG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcbiAgfVxufVxuLyogVGhlc2Ugc3R5bGVzIHdpbGwgb25seSBhcHBseSB0byBBcHBsZSBNYWlsIGFuZCBXZWJLaXQtYmFzZWQgYnJvd3NlcnMgKi9cbkBtZWRpYSBzY3JlZW4gYW5kICgtd2Via2l0LW1pbi1kZXZpY2UtcGl4ZWwtcmF0aW86IDApIHtcbiAgaW1nIHtcbiAgICBtYXJnaW4tbGVmdDogMDtcbiAgfVxufSJdfQ== */</style><style gs-style-type="force" data-type="force" type="text/css" role="export" rel="stylesheet">table[gs-eb-block] {
+  table-layout: fixed;
+}
+
+table[gs-eb-block] [eb-block-container] {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.mce-content-body audio[data-mce-selected],
+.mce-content-body details[data-mce-selected],
+.mce-content-body embed[data-mce-selected],
+.mce-content-body img[data-mce-selected],
+.mce-content-body object[data-mce-selected],
+.mce-content-body table[data-mce-selected],
+.mce-content-body video[data-mce-selected] {
+  outline: 0 !important;
+}
+
+li {
+  white-space: normal !important;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9ycGFsL0dTRGV2L25vbi1mcm9hbGEvZ3MtdWktdGVtcGxhdGVidWlsZGVyL2FwcHMvdGVtcGxhdGUtYnVpbGRlci9zdHlsZXMvX2VtYWlsYnVpbGRlci5mb3JjZS5zY3NzIiwiYXBwcy90ZW1wbGF0ZS1idWlsZGVyL3N0eWxlcy9fZW1haWxidWlsZGVyLmZvcmNlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxtQkFBQTtBQ0NGOztBREVBO0VBQ0UsZ0JBQUE7RUFDQSxxQkFBQTtBQ0NGOztBREVBOzs7Ozs7O0VBT0UscUJBQUE7QUNDRjs7QURNQTtFQUNFLDhCQUFBO0FDSEYiLCJmaWxlIjoiYXBwcy90ZW1wbGF0ZS1idWlsZGVyL3N0eWxlcy9fZW1haWxidWlsZGVyLmZvcmNlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJ0YWJsZVtncy1lYi1ibG9ja10ge1xuICB0YWJsZS1sYXlvdXQ6IGZpeGVkO1xufVxuXG50YWJsZVtncy1lYi1ibG9ja10gW2ViLWJsb2NrLWNvbnRhaW5lcl0ge1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XG59XG5cbi5tY2UtY29udGVudC1ib2R5IGF1ZGlvW2RhdGEtbWNlLXNlbGVjdGVkXSxcbi5tY2UtY29udGVudC1ib2R5IGRldGFpbHNbZGF0YS1tY2Utc2VsZWN0ZWRdLCBcbi5tY2UtY29udGVudC1ib2R5IGVtYmVkW2RhdGEtbWNlLXNlbGVjdGVkXSwgXG4ubWNlLWNvbnRlbnQtYm9keSBpbWdbZGF0YS1tY2Utc2VsZWN0ZWRdLCBcbi5tY2UtY29udGVudC1ib2R5IG9iamVjdFtkYXRhLW1jZS1zZWxlY3RlZF0sIFxuLm1jZS1jb250ZW50LWJvZHkgdGFibGVbZGF0YS1tY2Utc2VsZWN0ZWRdLCBcbi5tY2UtY29udGVudC1ib2R5IHZpZGVvW2RhdGEtbWNlLXNlbGVjdGVkXSB7XG4gIG91dGxpbmU6IDAgIWltcG9ydGFudDtcbn1cblxuLy8gVGhpcyBoYXMgYmVlbiBhZGRlZCBhcyBhIGZvcmNlIGZpeCBmb3IgdGhlIGxpc3QgaXRlbSB3aGl0ZSBzcGFjZSBpc3N1ZS5cbi8vIEkgYW0gYWdhaW5zdCBzdWNoIGZpeGVzLCBidXQgaXQgaXMgcmVxdWlyZWQgZm9yIHRoZSBlbWFpbCBidWlsZGVyIHRvIHdvcmsuXG4vLyBBbGwgbGkgc2hvdWxkIGhhdmUgd2hpdGUtc3BhY2U6IG5vcm1hbC5cbi8vIFJlZmVyIEdFLTIzMzI4Mi5cbmxpIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbCAhaW1wb3J0YW50O1xufSIsInRhYmxlW2dzLWViLWJsb2NrXSB7XG4gIHRhYmxlLWxheW91dDogZml4ZWQ7XG59XG5cbnRhYmxlW2dzLWViLWJsb2NrXSBbZWItYmxvY2stY29udGFpbmVyXSB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIHdvcmQtd3JhcDogYnJlYWstd29yZDtcbn1cblxuLm1jZS1jb250ZW50LWJvZHkgYXVkaW9bZGF0YS1tY2Utc2VsZWN0ZWRdLFxuLm1jZS1jb250ZW50LWJvZHkgZGV0YWlsc1tkYXRhLW1jZS1zZWxlY3RlZF0sXG4ubWNlLWNvbnRlbnQtYm9keSBlbWJlZFtkYXRhLW1jZS1zZWxlY3RlZF0sXG4ubWNlLWNvbnRlbnQtYm9keSBpbWdbZGF0YS1tY2Utc2VsZWN0ZWRdLFxuLm1jZS1jb250ZW50LWJvZHkgb2JqZWN0W2RhdGEtbWNlLXNlbGVjdGVkXSxcbi5tY2UtY29udGVudC1ib2R5IHRhYmxlW2RhdGEtbWNlLXNlbGVjdGVkXSxcbi5tY2UtY29udGVudC1ib2R5IHZpZGVvW2RhdGEtbWNlLXNlbGVjdGVkXSB7XG4gIG91dGxpbmU6IDAgIWltcG9ydGFudDtcbn1cblxubGkge1xuICB3aGl0ZS1zcGFjZTogbm9ybWFsICFpbXBvcnRhbnQ7XG59Il19 */</style><link rel="stylesheet" type="text/css" id="mce-u0" crossorigin="anonymous" referrerpolicy="origin" href="https://cdn.tiny.cloud/1/orhttebj9nysf6w4jmz4x9bg4sa0m26m36ymzlew7arsv096/tinymce/8.0.0-20/skins/ui/oxide/skin.min.css"><link rel="stylesheet" type="text/css" id="mce-u1" crossorigin="anonymous" referrerpolicy="origin" href="https://cdn.tiny.cloud/1/orhttebj9nysf6w4jmz4x9bg4sa0m26m36ymzlew7arsv096/tinymce/8.0.0-20/skins/ui/oxide/content.inline.min.css"></head><body width="100%" style="margin: 0; mso-line-height-rule: exactly; background-color: #f9f8f7;" class="fixed-layout gs-rte gs-rte-eb-body gs-edit-mode" id="ic0b"><table id="body-container-table" role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#f9f8f7" style="background-color:#f9f8f7;">
+              <tbody>
+                <tr>
+                  <td id="body-container-td" style="padding-left:0px;padding-right:0px;padding-top:25px;padding-bottom:10px;">  <!--	      Set the email width. Defined in two places:	      1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 630px.	      2. MSO tags for Desktop Windows Outlook enforce a 630px width.	  -->  <table align="center" id="email-container-table" role="presentation" cellspacing="0" cellpadding="0" border="0" width="630" bgcolor="#ffffff" style="background-color:#ffffff;">
+              <tbody>
+                <tr>
+                  <td id="email-container-td" valign="top" style="padding-left:0px; padding-right: 0px; padding-top: 0px;padding-bottom: 0px;font-family: Arial, sans-serif;color:  rgb(0, 0, 0);">    <!-- Email Body : BEGIN -->    <div id="email-body-main" gs-editable="true">        <table cellspacing="10" gs-eb-block id="ix8dgt">
+        <tbody id="iwkf7m">
+            <tr id="iy21pg"><td eb-block-container id="iumyoc"><!--[if mso]><table data-mso-style-filler style="width:100%;"><tbody><tr><td style="padding-top:10px;padding-bottom:10px;"><![endif]--><div contenteditable="false" rte-img-container id="ildk8v" class="rte-img-container"><a href="https://lastpass.com" code data-img-link data-rte-link-token data-rte-link-uuid="ca4ae0f3-06ff-43db-badd-bbb5004cfb6e" target="_blank" data-link-uuid="ca4ae0f3-06ff-43db-badd-bbb5004cfb6e" class><img src="cid:07c5a646-f4d1-486a-94a2-6f660c999d8a" width="207px" alt="Red LastPass logo" id="i7mooh"></a></div><!--[if mso]></td></tr></tbody></table><gs-space-filler-end></gs-space-filler-end><![endif]--></td></tr>
+        </tbody>
+      </table><table cellspacing="10" gs-eb-block id="i5hc2w">
+        <tbody id="ifogzf">
+            <tr id="iityn8"><td eb-block-container id="iszekg"></td><td eb-block-container id="iayepu"></td></tr>
+        </tbody>
+      </table><div preserve-gjs-type style="padding-top:0px;padding-bottom:0px;padding-left:0px;padding-right:0px;width:100%;font-family:Arial, sans-serif;font-size:13px;min-height:18px;box-sizing:border-box;">Insert your text here</div><table cellspacing="10" gs-eb-block id="itgoj">        <tbody id="igvg8"><tr id="in6fg"><td eb-block-container id="icj1o"><!--[if mso]><table data-mso-style-filler style="width:100%;"><tbody><tr><td style=""><![endif]--><div id="irikk"><div id="irjke"><font face="helvetica, sans-serif" size="3" id="i1ltvk"><b id="i6qnuj"><span id="i0g52l">Pilot team testing</span><br></b></font></div></div><!--[if mso]></td></tr></tbody></table><gs-space-filler-end></gs-space-filler-end><![endif]--></td></tr>      </tbody></table><table cellspacing="10" gs-eb-block id="iy6zat">        <tbody id="iprose"><tr id="i0qlbh"><td eb-block-container id="i7np4j"><!--[if mso]><table data-mso-style-filler style="width:100%;"><tbody><tr><td style=""><![endif]--><div id="ixeyts" style="position:relative;"><div><span face="helvetica, sans-serif" size="3" style="font-size:16px;font-family:helvetica, sans-serif;"><span>Your pilot team has been emailed, pr</span></span><span id="iwan46" style="font-size:16px;font-family:helvetica, sans-serif;"><span id="i82kar">ovisioned, and assembled! Now you'll want to start putting your training materails to good use and jumpstart testing.<br id="iwvhz"></span></span></div></div><!--[if mso]></td></tr></tbody></table><gs-space-filler-end></gs-space-filler-end><![endif]--></td></tr>      </tbody></table><table cellspacing="10" gs-eb-block id="i7x43n">
+        <tbody id="i4xb9l">
+            <tr id="ifqvux"><td eb-block-container id="il6prx"><!--[if mso]><table data-mso-style-filler style="width:100%;"><tbody><tr><td style=""><![endif]--><div data-rte-btn-token id="gs-_c8Iej3gRJSb5tgJNO_CyqyQmxAu3NDXM" data-rte-btn-uuid="gs-_c8Iej3gRJSb5tgJNO_CyqyQmxAu3NDXM" code style="padding-top: 0px;padding-bottom: 0px;padding-left: 0px;padding-right: 0px;line-height: 1.42857143; font-size: 13px;margin: 0px 0px 0px 0px; text-align: center">
+<table width="auto" style="border-collapse: collapse !important; border-spacing: 0 !important;margin: 0 auto; ">
+   <tbody>
+      <tr>
+         <td align="center" style="vertical-align: top;border-spacing: 0 !important; border-collapse: collapse !important; padding: 0px;">
+            <!--[if mso]>
+            <a href="https://lastpass.com"  target="_blank">
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://lastpass.com" style="mso-fit-shape-to-shape:true;mso-text-raise:1px;width:311px;height:35px;v-text-anchor:middle;" arcSize="25%" stroke="f" strokecolor="transparent" strokeweight="0" fillcolor="#d71340">
+               <w:anchorlock/>
+               <center style="color:#ffffff;font-family:helvetica, sans-serif;font-size:15px;font-weight:700;line-height:15px;text-decoration:none"><font data-gjs-type="text">Download our sample project plan</font></center>
+            </v:roundrect>
+            </a>
+            <![endif]-->
+            <!--[if !mso]>
+            <!-- -->
+            <table style="border-collapse: collapse !important; border-spacing: 0 !important;font-size: 16px;">
+               <tr>
+               <td align="middle" width="263" style="display:inline-block;-webkit-text-size-adjust:none;vertical-align:top; padding:8px 25px; background-color:#d71340;border-radius:8px;border-width:0;border-style:none;border-color:transparent;">
+                     <a href="https://lastpass.com" target="_blank" id="btn-gs-_c8Iej3gRJSb5tgJNO_CyqyQmxAu3NDXM" aria-label="Download our sample project plan" style="-webkit-text-size-adjust:none;box-sizing:border-box;width:unset;border-style:none;"><font data-gjs-type="text">Download our sample project plan</font></a>
+                  </td>
+               </tr>
+            </table>
+            <!--<![endif]-->
+         </td>
+      </tr>
+   </tbody>
+</table>
+</div><!--[if mso]></td></tr></tbody></table><gs-space-filler-end></gs-space-filler-end><![endif]--></td></tr>
+        </tbody>
+      </table><table cellspacing="10" gs-eb-block id="ix1tj">
+        <tbody id="ilfal">
+            <tr id="i2okk"><td eb-block-container id="injs6"><!--[if mso]><table data-mso-style-filler style="width:100%;"><tbody><tr><td style=""><![endif]--><div id="ibauq" class="gjs-selected" style="position:relative;"><div style="line-height:inherit;"><span style="font-size:16px;font-family:helvetica, sans-serif;">While every organization is different, below is a high-level overview of how testing can go:<br><br><span id="ix0hky">Pilot team tasks</span><br></span></div>
+<ul>
+<li><span size="3" face="helvetica, sans-serif" style="font-size:16px;font-family:helvetica, sans-serif;">Test the top sites and applications used by your employees to confirm they are functioning seamlessly.</span></li>
+<li><span size="3" face="helvetica, sans-serif" style="font-size:16px;font-family:helvetica, sans-serif;">Enable and test any SAML apps you intend to use in full roll-out.</span></li>
+<li><span size="3" face="helvetica, sans-serif" style="font-size:16px;font-family:helvetica, sans-serif;">Test all policies for proper configuration.</span></li>
+<li><span size="3" face="helvetica, sans-serif" style="font-size:16px;font-family:helvetica, sans-serif;">Test any equivalent domains, allowlists, or blocklists you have enabled for proper set-up and mapping.</span></li>
+</ul>
+<div><br><span id="ikgkgo">Collect feedback from pilot team</span><br>
+<ul>
+<li><span id="ittlr8">Account activation and installation process</span></li>
+<li><span id="ir9jn1">Training experience</span></li>
+<li><span id="ibcbyg">Overall product experinece</span></li>
+</ul>
+<div>
+<div id="iskggi"><br><span id="ijty72">Admin checklist</span><br>
+<ul>
+<li><span id="irgr1s">Monitor day-today usage, e.g. adding passwards, asset sharing, and password generation.</span></li>
+<li><span id="iqgygg">Survey test group on ease of implementation, training, and satisfaction ratings.</span></li>
+<li><span id="iiaou3">Make changes to the implementation strategy as necessary.</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div style="line-height:inherit;"><span id="i0vaq" size="3" face="helvetica, sans-serif" style="font-size:16px;font-family:helvetica, sans-serif;"></span></div></div><!--[if mso]></td></tr></tbody></table><gs-space-filler-end></gs-space-filler-end><![endif]--></td></tr>
+        </tbody>
+      </table><table cellspacing="10" gs-eb-block id="izmf7">
+        <tbody id="i78ki">
+            <tr id="iw5a9o"><td eb-block-container id="ialmgl"><table cellspacing="10" gs-eb-block id="itsh11">
+        <tbody id="iakwyg">
+            <tr id="i9urrj"><td eb-block-container id="iyl6s4"><table cellspacing="10" gs-eb-block id="iewwaf">
+        <tbody id="i1tx4b">
+            <tr id="iledci"><td eb-block-container id="ig9466"><table cellspacing="10" gs-eb-block id="i56e0n">
+        <tbody id="iosdot">
+            <tr id="iaz36h"><td eb-block-container id="i8d9ny"><!--[if mso]><table data-mso-style-filler style="width:100%;"><tbody><tr><td style=""><![endif]--><div id="ijhybm"><font id="ibr7xm" face="helvetica, sans-serif"><font id="iqa1la" size="4"><b id="il2gqh">Prefer to talk to someone?</b></font><br></font><font id="if6r4h" size="3"><font id="i4itfq" size="3">Our team of experts is ready to assist.<br><a contenteditable="false" id="691a4b7c-fd27-4ab8-b010-e1dc1f286f6b" data-rte-survey-link="691a4b7c-fd27-4ab8-b010-e1dc1f286f6b" target="_blank" href="${691a4b7c-fd27-4ab8-b010-e1dc1f286f6b}" class="gs-rte-survey-link survey-style">Connect with Customer Success now →</a></font><br></font></div><!--[if mso]></td></tr></tbody></table><gs-space-filler-end></gs-space-filler-end><![endif]--></td></tr>
+        </tbody>
+      </table></td></tr>
+        </tbody>
+      </table></td></tr>
+        </tbody>
+      </table></td></tr>
+        </tbody>
+      </table><table cellspacing="10" gs-eb-block id="i23r1f">
+        <tbody id="ix0i5z">
+            <tr id="i4j8uy"><td eb-block-container id="il4jfq"><div id="ikda1f"><font color="#ffffff" id="il2qzy" face="helvetica, sans-serif">This email was sent to: <span id="ic545u" data-token>${embd::9b0a8696-97dc-4484-92ff-defbd4c40d15}</span><br><a contenteditable="false" clicktracking="off" target="_blank" mc:disable-tracking data-rte-link-token data-rte-link-uuid="57105930-8ae2-4355-918e-882c451aea5b" id="iy2zgl" href="https://lastpass.com" class>© 2025. All rights reserved. LastPass US LP, 125 High Street, Suite 220, Boston, MA 02110</a><br><a contenteditable="false" clicktracking="off" target="_blank" mc:disable-tracking data-rte-link-token data-rte-link-uuid="090c9e98-736e-4ff0-b7e2-6633fdde26bc" id="ipkqad" href="https://www.lastpass.com/legal-center/privacy-policy" class>Privacy policy</a><br></font></div></td></tr>
+        </tbody>
+      </table>    </div>    <!-- Email Body : END -->  </td>
+                </tr>
+              </tbody>
+            </table></td>
+                </tr>
+              </tbody>
+            </table><style type="text/css" rel="stylesheet" role="inline">body{margin:0px;font-family:arial, sans-serif;}#body-container-start{width:100%;box-sizing:border-box;background-color:#f9f8f7;padding-left:0px;padding-right:0px;padding-top:25px;padding-bottom:10px;padding:25px 0px 10px;}#email-container-main{margin:0 auto;text-align:left;box-sizing:border-box;width:630px;max-width:630px;background-color:#ffffff;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;color:rgb(0, 0, 0);font-family:Arial, sans-serif;padding:0px;}#itgoj{width:100%;border-spacing:10px;}#icj1o{width:100%;vertical-align:top;box-sizing:border-box;}#irikk{padding:0px 10px;width:100%;vertical-align:top;min-height:18px;box-sizing:border-box;}#ix1tj{width:100%;border-spacing:10px;}#ilfal{border-spacing:10px;}#i2okk{border-spacing:10px;}#injs6{width:100%;vertical-align:top;padding:0px;box-sizing:border-box;}#\39 e4f9dd3-fecf-46bc-a07e-ff1f3f3eab83{display:block;text-align:center;user-select:none;font-size:16px;font-family:helvetica, sans-serif;}#i6on2{padding:9px 25px;height:32px;line-height:14px;}#i37dw{padding:9px 25px;height:32px;line-height:14px;}#iip2u{padding:8px 25px;height:32px;line-height:16px;}#imgyh{padding:8px 25px;height:32px;line-height:16px;}#ibauq{padding:0px 10px;width:100%;vertical-align:top;min-height:18px;box-sizing:border-box;}#in7mg{padding:8px 25px;height:32px;line-height:16px;}#igrm5{padding:8px 25px;height:32px;line-height:16px;}#iosu4{padding:8px 25px;height:32px;line-height:16px;}#iojka{padding:8px 25px;height:32px;line-height:16px;}#idjwf{padding:8px 25px;height:32px;line-height:16px;}#irzxh{padding:8px 25px;height:32px;line-height:16px;}#i28e7{padding:8px 25px;height:32px;line-height:16px;}#ilipd{padding:8px 25px;height:32px;line-height:16px;}#izmf7{width:100%;border-spacing:10px;font-family:Arial, sans-serif;}#i78ki{border-spacing:10px;}#iw5a9o{border-spacing:10px;}#ialmgl{width:100%;vertical-align:top;padding:0px;box-sizing:border-box;}#itsh11{width:100%;border-spacing:10px;font-family:Arial, sans-serif;}#iakwyg{border-spacing:10px;}#i9urrj{border-spacing:10px;}#iyl6s4{width:100%;vertical-align:top;padding:0px;box-sizing:border-box;}#iewwaf{width:100%;border-spacing:10px;font-family:Arial, sans-serif;}#i1tx4b{border-spacing:10px;}#iledci{border-spacing:10px;}#ig9466{width:100%;vertical-align:top;padding:0px;box-sizing:border-box;}#i56e0n{width:100%;border-spacing:10px;background-color:rgb(232, 236, 244);border-radius:8px;}#iosdot{border-spacing:10px;}#iaz36h{border-spacing:10px;}#i8d9ny{width:100%;vertical-align:top;padding:0px;box-sizing:border-box;}#ipwl3{padding:8px 25px;height:32px;line-height:16px;}#iu6z1{padding:8px 25px;height:32px;line-height:16px;}#i1gd9{padding:8px 25px;height:32px;line-height:16px;}#ibggt{padding:8px 25px;height:32px;line-height:16px;}#icuwsk{background-color:rgb(0, 0, 0);}#i23r1f{width:100%;border-spacing:10px;font-family:Arial, sans-serif;background-color:rgb(0, 0, 0);}#ix0i5z{border-spacing:10px;}#i4j8uy{border-spacing:10px;}#il4jfq{width:100%;vertical-align:top;padding:0px;box-sizing:border-box;}#ikda1f{padding:0px;width:100%;vertical-align:top;font-family:arial, sans-serif;font-size:13px;min-height:18px;box-sizing:border-box;text-align:center;}#iy2zgl{color:rgb(255, 255, 255);text-decoration:none;}#ipkqad{color:rgb(255, 255, 255);}#i9ojn{padding:8px 25px;height:32px;line-height:16px;}#i1v93{padding:8px 25px;height:32px;line-height:16px;}#iimso{padding:8px 25px;height:32px;line-height:16px;}#iubub{padding:8px 25px;height:32px;line-height:16px;}#i92ci{padding:8px 25px;height:32px;line-height:16px;}#i4m46{padding:8px 25px;height:32px;line-height:16px;}#ibpq6{padding:8px 25px;height:32px;line-height:16px;}#irsmj{padding:8px 25px;height:32px;line-height:16px;}#i5h6g{padding:8px 25px;height:32px;line-height:16px;}#it4ok{padding:8px 25px;height:32px;line-height:16px;}#i14oi{padding:8px 25px;height:32px;line-height:16px;}#iekpr{padding:8px 25px;height:32px;line-height:16px;}#inu8v{padding:8px 25px;height:32px;line-height:16px;}#i62re{padding:8px 25px;height:32px;line-height:16px;}#iszfi{padding:8px 25px;height:32px;line-height:16px;}#iglz2{padding:8px 25px;height:32px;line-height:16px;}#i1cn7{padding:8px 25px;height:32px;line-height:16px;}#i7nfn{padding:8px 25px;height:32px;line-height:16px;}#iz5z3{padding:8px 25px;height:32px;line-height:16px;}#imo1l{padding:8px 25px;height:32px;line-height:16px;}#ia3at{padding:8px 25px;height:32px;line-height:16px;}#if51r{padding:8px 25px;height:32px;line-height:16px;}#i7w6r{padding:8px 25px;height:32px;line-height:16px;}#i74rj{padding:8px 25px;height:32px;line-height:16px;}#iov01{padding:8px 25px;height:32px;line-height:16px;}#i71up{padding:8px 25px;height:32px;line-height:16px;}#i9ydr{padding:8px 25px;height:32px;line-height:16px;}#i2x99{padding:8px 25px;height:32px;line-height:16px;}#igvg8{border-spacing:10px;}#in6fg{border-spacing:10px;}#iohhj{padding:8px 25px;height:32px;line-height:16px;}#ie9s8{padding:8px 25px;height:32px;line-height:16px;}#i594w{padding:8px 25px;height:32px;line-height:16px;}#ij7ad{padding:8px 25px;height:32px;line-height:16px;}#i8n17{padding:8px 25px;height:32px;line-height:16px;}#idv9h{padding:8px 25px;height:32px;line-height:16px;}#i38ix{padding:8px 25px;height:32px;line-height:16px;}#izhak{padding:8px 25px;height:32px;line-height:16px;}#i6w4c{padding:8px 25px;height:32px;line-height:16px;}#i84eg{padding:8px 25px;height:32px;line-height:16px;}#ikr9v{padding:8px 25px;height:32px;line-height:16px;}#ijrb4{padding:8px 25px;height:32px;line-height:16px;}#i5hmg{padding:8px 25px;height:32px;line-height:16px;}#i28xp{padding:8px 25px;height:32px;line-height:16px;}#ijhybm{padding:0px;width:100%;vertical-align:top;font-family:arial, sans-serif;font-size:13px;min-height:18px;box-sizing:border-box;text-align:left;}#i3lyv{padding:8px 25px;height:32px;line-height:16px;}#iqx0m{padding:8px 25px;height:32px;line-height:16px;}#i65r6{padding:8px 25px;height:32px;line-height:16px;}#i0swh{padding:8px 25px;height:32px;line-height:16px;}#igzqx{padding:8px 25px;height:32px;line-height:16px;}#ifm2y{padding:8px 25px;height:32px;line-height:16px;}#io7mh{padding:8px 25px;height:32px;line-height:16px;}#i730i{padding:8px 25px;height:32px;line-height:16px;}#i0bij{padding:8px 25px;height:32px;line-height:16px;}#ikt1f{padding:8px 25px;height:32px;line-height:16px;}#i1sls{padding:8px 25px;height:32px;line-height:16px;}#ic3lk{padding:8px 25px;height:32px;line-height:16px;}#isywd{padding:8px 25px;height:32px;line-height:16px;}#ic5bf{padding:8px 25px;height:32px;line-height:16px;}#iqgtm{padding:8px 25px;height:32px;line-height:16px;}#ijeof{padding:8px 25px;height:32px;line-height:16px;}#i23yi{padding:8px 25px;height:32px;line-height:16px;}#icb9p{padding:8px 25px;height:32px;line-height:16px;}#ikhzx{padding:8px 25px;height:32px;line-height:16px;}#imzfl{padding:8px 25px;height:32px;line-height:16px;}.survey-style{color:rgb(84, 109, 167);font-weight:bold;text-decoration:none;}#i9nr8{padding:8px 25px;height:32px;line-height:16px;}#izywc{padding:8px 25px;height:32px;line-height:16px;}#ix8dgt{width:100%;border-spacing:10px;font-family:Arial, sans-serif;}#iwkf7m{border-spacing:10px;}#iy21pg{border-spacing:10px;}#iumyoc{width:100%;vertical-align:top;padding:0px;box-sizing:border-box;}#ildk8v{display:inline-block;width:100%;text-align:center;padding-top:10px;padding-bottom:10px;}#i7mooh{width:207px;box-sizing:border-box;}#ih21q{padding:8px 25px;height:32px;line-height:16px;}#i23mk{padding:8px 25px;height:32px;line-height:16px;}#ixeyts{padding:0px 10px;width:100%;vertical-align:top;min-height:18px;box-sizing:border-box;}#i7np4j{width:100%;vertical-align:top;box-sizing:border-box;}#i0qlbh{border-spacing:10px;}#iprose{border-spacing:10px;}#iy6zat{width:100%;border-spacing:10px;}#i0g52l{font-size:x-large;}#i7x43n{width:100%;border-spacing:10px;font-family:Arial, sans-serif;}#i4xb9l{border-spacing:10px;}#ifqvux{border-spacing:10px;}#il6prx{width:100%;vertical-align:top;padding:0px;box-sizing:border-box;}#gs-_c8Iej3gRJSb5tgJNO_CyqyQmxAu3NDXM{display:block;text-align:center;user-select:none;font-size:16px;font-family:helvetica, sans-serif;}#btn-gs-_c8Iej3gRJSb5tgJNO_CyqyQmxAu3NDXM{display:inline-block;-webkit-text-size-adjust:none;vertical-align:top;background-color:#d71340;border-radius:8px;border-width:0;border-style:none;border-color:transparent;box-sizing:border-box;text-size-adjust:none;text-decoration:none;text-align:center;color:rgb(255, 255, 255);font-size:16px;font-family:helvetica, sans-serif;font-weight:bold;}#i6vnze{padding:9px 25px;height:32px;line-height:14px;}#ig12nk{padding:9px 25px;height:32px;line-height:14px;}#i9xnzf{font-family:helvetica, sans-serif;font-size:16px;}#ix0hky{font-weight:bold;}#ikgkgo{font-size:medium;font-weight:700;}#ittlr8{font-size:medium;}#ir9jn1{font-size:medium;}#ibcbyg{font-size:medium;}#iskggi{font-size:medium;}#ijty72{font-weight:bold;}#irgr1s{font-size:medium;}#iqgygg{font-size:medium;}#iiaou3{font-size:medium;}#i8kn9{padding:8px 25px;height:32px;line-height:16px;}#iexzi{padding:8px 25px;height:32px;line-height:16px;}#i0z9w{padding:8px 25px;height:32px;line-height:16px;}#idfe9{padding:8px 25px;height:32px;line-height:16px;}#invzl{padding:8px 25px;height:32px;line-height:16px;}#ib6os{padding:8px 25px;height:32px;line-height:16px;}#iszekg{width:70%;vertical-align:top;padding:0px;box-sizing:border-box;}#iayepu{width:30%;vertical-align:top;padding:0px;box-sizing:border-box;}#iityn8{border-spacing:10px;}#ifogzf{border-spacing:10px;}#i5hc2w{width:100%;border-spacing:10px;}#iir0f{padding:8px 25px;height:32px;line-height:16px;}#ilr5x{padding:8px 25px;height:32px;line-height:16px;}#ilv74{padding:8px 25px;height:32px;line-height:16px;}#ivo39{padding:8px 25px;height:32px;line-height:16px;}</style></body></html>
       </div>
-      <style>
-        .panel {
-          width: 90%;
-          max-width: 700px;
-          border-radius: 3px;
-          padding: 30px 20px;
-          margin: 150px auto 0px;
-          background-color: #d983a6;
-          box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-          color: rgba(255, 255, 255, 0.75);
-          font: caption;
-          font-weight: 100;
-        }
-
-        .welcome {
-          text-align: center;
-          font-weight: 100;
-          margin: 0px;
-        }
-
-        .logo {
-          width: 70px;
-          height: 70px;
-          vertical-align: middle;
-        }
-
-        .logo path {
-          pointer-events: none;
-          fill: none;
-          stroke-linecap: round;
-          stroke-width: 7;
-          stroke: #fff;
-        }
-
-        .big-title {
-          text-align: center;
-          font-size: 3.5rem;
-          margin: 15px 0;
-        }
-
-        .description {
-          text-align: justify;
-          font-size: 1rem;
-          line-height: 1.5rem;
-        }
-      </style>
     </div>
-
     <script type="text/javascript">
       var editor = grapesjs.init({
         showOffsets: 1,
@@ -87,6 +271,10 @@
         container: '#gjs',
         height: '100%',
         fromElement: true,
+        canvasCss: "\n      [contenteditable] { outline: 0px solid transparent;}\n    ",
+        avoidInlineStyle: true,
+        addInlineStyleToTextComponent: true,
+        forceClass: false,
         storageManager: { autoload: 0 },
         styleManager: {
           sectors: [
@@ -148,12 +336,89 @@
             },
           ],
         },
+        plugins: [
+        'grapesjs-parser-postcss',
+        (window).StudioSdkPlugins_rteTinyMce.init({
+          cdnScript: 'https://cdn.tiny.cloud/1/orhttebj9nysf6w4jmz4x9bg4sa0m26m36ymzlew7arsv096/tinymce/8.0.0/tinymce.min.js',
+          enableOnClick: false,
+          // Custom TinyMCE configuration
+          loadConfig: ({ component, config }) => {
+            const cmpAttr = component.getAttributes();
+            // Check if the component has the unsubscribe attribute
+            return {
+                ...config,
+                nativeDnD: false,
+                menubar: false,
+                referrer_policy: 'origin',
+                font_family_formats: 'Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde;Brush Script MT=brush script mt, sans-serif; Lucida Sans Unicode=lucida sans unicode, lucida grande, sans-serif; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats',
+                font_size_formats: Array.from({ length: 64 - 8 + 1 }, (_, i) => (8 + i)+"px").join(' '),
+                line_height_formats: '1 1.1 1.2 1.3 1.4 1.5 2 2.1 2.2 2.3 2.4 2.5 3',
+                extended_valid_elements: "img[*],a[*],table[*],tr[*],td[*],th[*]", // WARNING: DO NOT ADD more valid elements here.
+                formats: {
+                  underline: { inline: 'u', exact: true, remove: 'all' }
+                },
+                statusbar: false,
+                inline: true,
+                forced_root_block: 'div',
+                forced_root_block_attrs: {
+                  style: 'line-height: inherit;'
+                },
+                fix_list_elements: true,
+                valid_children: "-code[code],+h1[div],+h2[div],+h3[div],+h4[div],+h5[div],+h6[div],+span[div|font|b|strong|i|em|u|s|sub|sup|o:p]",
+                default_font_stack: [ '-apple-system', 'Arial', 'Helvetica Neue', 'sans-serif' ],
+                custom_ui_selector: '.toolbar-container',
+                // This is need to prevent unwanted behaviors between grapesjs and tinyMCE view.
+                convert_fonts_to_spans: true,
+                // keep these URLs/hrefs intact
+                convert_urls: false,
+                // For example, when this option is set to true, an empty paragraph, <p></p>, is serialized to <p><br></p>
+                pad_empty_with_br: true,
+                // This is needed to prevent the trailing brs at the end of block elements.
+                remove_trailing_brs: false,
+                powerpaste_allow_local_images: true,
+                plugins: 'lists emoticons powerpaste link',
+                toolbar: [
+                  "link styles ai-bot-button fontfamily fontsize forecolor backcolor bold italic underline styles alignleft aligncenter alignright alignjustify indent outdent line-height-button numlist bullist strikethrough superscript subscript removeformat link-token token image-token video-token layout-token survey-token emoticons attachment-token | undo redo"
+                ],
+                powerpaste_allow_local_images: true,
+                powerpaste_word_import: 'prompt',
+                powerpaste_html_import: 'prompt',
+                style_formats: [
+                  { title: 'Heading 1', format: 'h1' },
+                  { title: 'Heading 2', format: 'h2' },
+                  { title: 'Heading 3', format: 'h3' },
+                  { title: 'Heading 4', format: 'h4' },
+                  { title: 'Heading 5', format: 'h5' },
+                  { title: 'Heading 6', format: 'h6' },
+                  { title: 'Paragraph', format: 'div' }
+                ],
+                setup: (rte) => {
+                  // this.tinymcePlugin(editor, rte, opts.toolbarContainer);
+                  rte.on('change', (e) => {
+                    const comp = this.editor.getSelected();
+                    //console.log('change', e.node);
+                    //this.editor.changed = true;
+                    // comp && comp.view.syncContent({force: true});
+                  });
+                }
+              }
+          }
+        })
+      ]
       });
 
       editor.BlockManager.add('testBlock', {
         label: 'Block',
         attributes: { class: 'gjs-fonts gjs-f-b1' },
-        content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center">Test block</div>`,
+        content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center" data-gjs-type="eb-block">Test block</div>`,
+      });
+
+      editor.on('change:changesCount', (comp) => {
+        console.log('changesCount', comp.changed.changesCount);
+        // this.editor.changed = false;
+      });
+      editor.on('component:selected', (comp) => {
+        console.log('component:selected', comp.ccid);
       });
     </script>
   </body>

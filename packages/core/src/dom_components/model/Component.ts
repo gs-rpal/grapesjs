@@ -78,6 +78,7 @@ const escapeRegExp = (str: string) => {
 };
 
 export const avoidInline = (em: EditorModel) => !!em?.getConfig().avoidInlineStyle;
+export const addInlineStyle = (em: EditorModel) => !!em?.getConfig().addInlineStyleToTextComponent;
 
 export const eventDrag = 'component:drag';
 export const keySymbols = '__symbols';
@@ -88,6 +89,7 @@ export const keyUpdateInside = ComponentsEvents.updateInside;
 
 type GetComponentStyleOpts = GetStyleOpts & {
   inline?: boolean;
+  forceIntoId?: boolean;
 };
 
 /**
@@ -310,6 +312,7 @@ export default class Component extends StyleableModel<ComponentProperties> {
     this.opt = opt;
     this.em = em!;
     this.config = opt.config || {};
+    const type = this.get('type');
     const defaultAttrs = {
       ...(result(this, 'defaults').attributes || {}),
       ...(this.get('attributes') || {}),
@@ -354,7 +357,7 @@ export default class Component extends StyleableModel<ComponentProperties> {
       em?.trigger(ComponentsEvents.create, this, opt);
     }
 
-    if (avoidInline(em)) {
+    if (avoidInline(em) && !(['text', 'default', ''].includes(type!))) {
       this.dataResolverWatchers.disableStyles();
     }
   }
@@ -804,12 +807,13 @@ export default class Component extends StyleableModel<ComponentProperties> {
     opts?: GetComponentStyleOpts,
   ): StyleProps | StyleProps[keyof StyleProps] | undefined {
     const { em } = this;
+    const type = this.get('type');
     const isPropString = isString(prop);
     const resolvedProp = isPropString ? prop : '';
     const resolvedOpts = isPropString ? opts : prop;
     const skipResolve = !!resolvedOpts?.skipResolve;
 
-    if (avoidInline(em) && !resolvedOpts?.inline) {
+    if (avoidInline(em) && !resolvedOpts?.inline && (resolvedOpts?.forceIntoId || !(['text', 'default', ''].includes(type!)))) {
       const state = em.get('state');
       const cc = em.Css;
       const rule = cc.getIdRule(this.getId(), { state, ...resolvedOpts });
@@ -836,8 +840,9 @@ export default class Component extends StyleableModel<ComponentProperties> {
    */
   setStyle(prop: StyleProps = {}, opts: UpdateStyleOptions = {}) {
     const { opt, em } = this;
+    const type = this.get('type');
 
-    if (avoidInline(em) && !opt.temporary && !opts.inline) {
+    if (avoidInline(em) && !opt.temporary && !opts.inline && (opts.forceIntoId || !(['text', 'default', ''].includes(type!)))) {
       const style = this.get('style') || {};
       prop = isString(prop) ? this.parseStyle(prop) : prop;
       prop = { ...(style as any), ...prop };
@@ -865,6 +870,7 @@ export default class Component extends StyleableModel<ComponentProperties> {
    */
   getAttributes(opts: { noClass?: boolean; noStyle?: boolean; skipResolve?: boolean } = {}) {
     const { em } = this;
+    const type = this.get('type');
     const classes: string[] = [];
     const resolvedAttrs = { ...this.get('attributes')! };
     const attributes = opts?.skipResolve
@@ -895,7 +901,7 @@ export default class Component extends StyleableModel<ComponentProperties> {
 
       // If we don't rely on inline styling we have to check
       // for the ID selector
-      if (avoidInline(em) || !isEmpty(this.getStyle())) {
+      if ((avoidInline(em) && !(['text', 'default', ''].includes(type!))) || !isEmpty(this.getStyle())) {
         addId = !!sm?.get(id, sm.Selector.TYPE_ID);
       }
 
@@ -1626,8 +1632,9 @@ export default class Component extends StyleableModel<ComponentProperties> {
    */
   getAttrToHTML(opts?: ToHTMLOptions) {
     const attrs = this.getAttributes();
+    const type = this.get('type');
 
-    if (avoidInline(this.em) && opts?.keepInlineStyle !== true) {
+    if (avoidInline(this.em) && opts?.keepInlineStyle !== true && !(['text', 'default', ''].includes(type!))) {
       delete attrs.style;
     }
 
@@ -2014,11 +2021,12 @@ export default class Component extends StyleableModel<ComponentProperties> {
 
   private _moveInlineStyleToRule() {
     const inlineStyle = this.get('style');
+    const type = this.get('type');
     const hasInlineStyle =
       (isString(inlineStyle) && inlineStyle.length > 0) ||
       (isObject(inlineStyle) && Object.keys(inlineStyle).length > 0);
 
-    if (avoidInline(this.em) && hasInlineStyle) {
+    if (avoidInline(this.em) && hasInlineStyle && !(['text', 'default', ''].includes(type!))) {
       this.addStyle(
         isObject(inlineStyle) ? this.dataResolverWatchers.getValueOrResolver('styles', inlineStyle) : inlineStyle,
         { avoidStore: true, noUndo: true },

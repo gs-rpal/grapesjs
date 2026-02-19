@@ -487,7 +487,12 @@ export default class FrameView extends ModuleView<Frame, HTMLIFrameElement> {
       { event: 'wheel', class: 'WheelEvent', opts: { passive: !config.infiniteCanvas } },
     ].forEach((obj) =>
       obj.event.split(' ').forEach((event) => {
-        doc.addEventListener(event, (ev) => this.el.dispatchEvent(createCustomEvent(ev, obj.class)), obj.opts);
+        doc.addEventListener(event, (ev: any) => {
+          if (ev.type === "keydown" && ev.keyCode === 83 && (navigator.platform.match("Mac") ? ev.metaKey : ev.ctrlKey)) {
+            ev.preventDefault();
+          }
+          return this.el.dispatchEvent(createCustomEvent(ev, obj.class));
+        });
       }),
     );
 

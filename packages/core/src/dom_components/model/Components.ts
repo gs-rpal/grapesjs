@@ -81,6 +81,17 @@ const getComponentsFromDefs = (
           } else if (keys(style).length) {
             component.addStyle(style, opts);
           }
+          // Gainsight usecase to honor the styles coming from the RTE "AS IT IS".
+          // Discarding the existing styles.
+          const type = component.get('type');
+          if((['text', 'default', ''].includes(type!))) {
+            if (isEmpty(style)) {
+              component.setStyle({});
+              component.removeAttributes('style');
+            } else {
+              component.setStyle(style);
+            }
+          }
         }
       } else {
         // Found another component with the same ID, treat it as a new component
@@ -164,8 +175,11 @@ Component> {
     const cssc = em?.Css;
     const allByID = domc?.allById() || {};
     const parsed = this.parseString(input, opts);
-    const newCmps = getComponentsFromDefs(parsed, allByID, { skipViewUpdate: true, ...opts });
-    const { visitedCmps = {} } = opts;
+    const fromDefOpts = { skipViewUpdate: true, ...opts };
+    const newCmps = getComponentsFromDefs(parsed, allByID, fromDefOpts);
+    const { visitedCmps = {} } = fromDefOpts;
+    //const newCmps = getComponentsFromDefs(parsed, allByID, { skipViewUpdate: true, ...opts });
+    //const { visitedCmps = {} } = opts;
 
     // Clone styles for duplicated components
     Object.keys(visitedCmps).forEach((id) => {
@@ -418,11 +432,13 @@ Component> {
 
   onAdd(model: Component, c?: any, opts: { temporary?: boolean } = {}) {
     const { domc, em } = this;
+    const type = model.get('type');
     const style = model.getStyle();
     const avoidInline = em && em.getConfig().avoidInlineStyle;
+    const addInlineStyle = em && em.getConfig().addInlineStyleToTextComponent;
     domc && domc.Component.ensureInList(model);
 
-    if (!isEmpty(style) && !avoidInline && em && em.getConfig().forceClass && !opts.temporary) {
+    if (!isEmpty(style) && (!avoidInline && !(['text', 'default', ''].includes(type!))) && em && em.getConfig().forceClass && !opts.temporary) {
       const name = model.cid;
       em.Css.setClassRule(name, style);
       model.setStyle({});

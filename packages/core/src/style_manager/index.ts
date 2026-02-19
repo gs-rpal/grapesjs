@@ -542,6 +542,7 @@ export default class StyleManager extends ItemManagerModule<
   getModelToStyle(model: any, options: { skipAdd?: boolean; useClasses?: boolean } = {}): StyleableModel {
     const { em } = this;
     const { skipAdd } = options;
+    const type = model.get('type');
 
     if (em && model?.toHTML) {
       const config = em.getConfig();
@@ -571,7 +572,7 @@ export default class StyleManager extends ItemManagerModule<
           if (!rule && !skipAdd) {
             rule = cssC.add(valid, state, deviceW, {}, addOpts);
           }
-        } else if (config.avoidInlineStyle) {
+        } else if (config.avoidInlineStyle && !(['text', 'default', ''].includes(type!))) {
           const id = model.getId();
           rule = cssC.getIdRule(id, opts);
           !rule && !skipAdd && (rule = cssC.setIdRule(id, {}, opts));

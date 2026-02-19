@@ -242,6 +242,8 @@ export interface EditorConfig {
    * @deprecated Don't use this option, we don't support inline styling anymore.
    */
   avoidInlineStyle?: boolean;
+  // GS usecase
+  addInlineStyleToTextComponent?: boolean;
 
   /**
    * Avoid default properties from storable JSON data, like `components` and `styles`.

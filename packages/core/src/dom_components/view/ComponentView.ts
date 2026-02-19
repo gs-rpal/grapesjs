@@ -295,8 +295,9 @@ TComp> {
    * */
   updateStyle(m?: any, v?: any, opts: ObjectAny = {}) {
     const { model, em } = this;
+    const type = model.get('type');
 
-    if (avoidInline(em) && !opts.inline) {
+    if (avoidInline(em) && !opts.inline && !(['text', 'default', ''].includes(type!))) {
       // Move inline styles to CSSRule
       const styleOpts = this.__cmpStyleOpts;
       const style = model.getStyle({ inline: true, ...styleOpts });

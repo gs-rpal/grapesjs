@@ -280,7 +280,7 @@ export default class EditorModel extends Model {
     this.on('change:componentHovered', this.componentHovered, this);
     this.on('change:changesCount', this.updateChanges, this);
     this.on('change:readyLoad change:readyCanvas', this._checkReady, this);
-    toLog.forEach((e) => this.listenLog(e));
+    toLog.forEach((e) => this.listenLog(e));  
 
     // Deprecations
     [{ from: 'change:selectedComponent', to: 'component:toggled' }].forEach((event) => {
@@ -465,12 +465,12 @@ export default class EditorModel extends Model {
     if (this.__skip || !this.loadTriggered || opt.temporary || opt.noCount || opt.avoidStore || opt.partial) {
       return;
     }
-
+    const comp = this.getSelected();
     this.timedInterval && clearTimeout(this.timedInterval);
     this.timedInterval = setTimeout(() => {
       const curr = this.getDirtyCount() || 0;
       const { unset, ...opts } = opt;
-      this.set('changesCount', curr + 1, opts);
+      this.set('changesCount', curr + 1, {...opts, component: comp});
     }, 0);
   }
 
@@ -843,7 +843,7 @@ export default class EditorModel extends Model {
     const keepUnusedStyles = !isUndefined(opts.keepUnusedStyles) ? opts.keepUnusedStyles : config.keepUnusedStyles;
     const cssc = this.Css;
     const wrp = opts.component || this.Components.getComponent();
-    const protCss = !avoidProt ? config.protectedCss! : '';
+    const protCss = !avoidProt ? config.protectedCss || '' : '';
     const css =
       wrp &&
       this.CodeManager.getCode(wrp, 'css', {
