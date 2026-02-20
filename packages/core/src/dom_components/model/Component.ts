@@ -2089,12 +2089,26 @@ export default class Component extends StyleableModel<ComponentProperties> {
     const list = Component.getList(model);
     const { idMap = {} } = opts;
     let { id } = model.get('attributes')!;
-    let nextId;
+    let nextId: string;
 
     if (id) {
       nextId = Component.getIncrementId(id, list, opts);
       model.setId(nextId);
-      if (id !== nextId) idMap[id] = nextId;
+      if (id !== nextId && !!nextId) {
+        idMap[id] = nextId;
+        console.log('existing id -> new id', id, nextId);
+        // Get all available rules of the component
+        const rulesToClone = (model.em?.Css.getRules(`#${id}`) || []).filter((rule) => !isEmpty(rule.attributes.style));
+        // Add the css rule with the new id
+        if (rulesToClone.length) {
+          const rules = model.em?.Css.getAll();
+          rulesToClone.forEach((rule) => {
+            const newRule = rule.clone();
+            newRule.set('selectors', [`#${nextId}`] as any);
+            rules.add(newRule);
+          });
+        }
+      }
     } else {
       nextId = Component.getNewId(list);
     }
@@ -2142,10 +2156,15 @@ export default class Component extends StyleableModel<ComponentProperties> {
     components: ComponentDefinitionDefined | ComponentDefinitionDefined[],
     styles: CssRuleJSON[] = [],
     list: ObjectAny = {},
-    opts: { keepIds?: string[]; idMap?: PrevToNewIdMap } = {},
+    opts: {
+      keepIds?: string[];
+      idMap?: PrevToNewIdMap;
+      updatedIds?: Record<string, ComponentDefinitionDefined[]>;
+    } = {},
   ) {
+    opts.updatedIds = opts.updatedIds || {};
     const comps = isArray(components) ? components : [components];
-    const { keepIds = [], idMap = {} } = opts;
+    const { keepIds = [], idMap = {}, updatedIds } = opts;
     comps.forEach((comp) => {
       comp.attributes;
       const { attributes = {}, components } = comp;
@@ -2154,6 +2173,7 @@ export default class Component extends StyleableModel<ComponentProperties> {
       // Check if we have collisions with current components
       if (id && list[id] && keepIds.indexOf(id) < 0) {
         const newId = Component.getIncrementId(id, list);
+        updatedIds[id] = updatedIds[id] ? [...updatedIds[id], comp] : [comp];
         idMap[id] = newId;
         attributes.id = newId;
         // Update passed styles
@@ -2168,5 +2188,9 @@ export default class Component extends StyleableModel<ComponentProperties> {
 
       components && Component.checkId(components, styles, list, opts);
     });
+
+    return {
+      updatedIds: opts.updatedIds,
+    };
   }
 }
