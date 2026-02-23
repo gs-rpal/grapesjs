@@ -2096,17 +2096,19 @@ export default class Component extends StyleableModel<ComponentProperties> {
       model.setId(nextId);
       if (id !== nextId && !!nextId) {
         idMap[id] = nextId;
-        console.log('existing id -> new id', id, nextId);
-        // Get all available rules of the component
-        const rulesToClone = (model.em?.Css.getRules(`#${id}`) || []).filter((rule) => !isEmpty(rule.attributes.style));
-        // Add the css rule with the new id
-        if (rulesToClone.length) {
-          const rules = model.em?.Css.getAll();
-          rulesToClone.forEach((rule) => {
-            const newRule = rule.clone();
-            newRule.set('selectors', [`#${nextId}`] as any);
-            rules.add(newRule);
-          });
+        if(!opts.forCloning) {
+          console.log('existing id -> new id', id, nextId);
+          // Get all available rules of the component
+          const rulesToClone = (model.em?.Css.getRules(`#${id}`) || []).filter((rule) => !isEmpty(rule.attributes.style));
+          // Add the css rule with the new id
+          if (rulesToClone.length) {
+            const rules = model.em?.Css.getAll();
+            rulesToClone.forEach((rule) => {
+              const newRule = rule.clone();
+              newRule.set('selectors', [`#${nextId}`] as any);
+              rules.add(newRule);
+            });
+          }
         }
       }
     } else {
